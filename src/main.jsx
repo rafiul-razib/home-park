@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root/Root";
 import Home from "./assets/Pages/Home";
 import EstateDetails from "./Components/EstateDetails";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
         path: "/estate/:id",
         loader: () => fetch("/data.json"),
         element: <EstateDetails />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

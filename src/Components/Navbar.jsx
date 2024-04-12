@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo@2x.png";
 
 const Navbar = () => {
@@ -51,8 +51,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-2">
-        <a className="btn btn-accent">Login</a>
-        <a className="btn btn-accent">Log Out</a>
+        <Link to={"/login"} className="btn btn-accent">
+          Login
+        </Link>
+        <button className="btn btn-accent">Log Out</button>
       </div>
     </div>
   );
