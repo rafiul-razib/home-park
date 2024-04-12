@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../firebase/AuthProvider";
 
 const Login = () => {
+  const { googleSignIn } = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -8,6 +12,12 @@ const Login = () => {
     const password = form.get("password");
 
     console.log(email, password);
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error.message));
   };
 
   return (
@@ -59,6 +69,14 @@ const Login = () => {
               <p>
                 New here? <Link to={"/register"}>Register Now!</Link>
               </p>
+            </div>
+            <div>
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn btn-primary text-white"
+              >
+                Sign in with Google
+              </button>
             </div>
           </form>
         </div>

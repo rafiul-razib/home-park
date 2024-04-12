@@ -1,7 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo@2x.png";
+import { useContext } from "react";
+import { AuthContext } from "../firebase/AuthProvider";
 
 const Navbar = () => {
+  const { user, LogOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    LogOut();
+  };
   const links = (
     <>
       <li>
@@ -51,10 +57,18 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-2">
-        <Link to={"/login"} className="btn btn-accent">
-          Login
-        </Link>
-        <button className="btn btn-accent">Log Out</button>
+        {user ? (
+          <>
+            <h2>{user.email}</h2>
+            <button onClick={handleLogOut} className="btn btn-accent">
+              Log Out
+            </button>
+          </>
+        ) : (
+          <Link to={"/login"} className="btn btn-accent">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
