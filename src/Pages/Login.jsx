@@ -3,9 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/AuthProvider";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, login, facebookSignIn, githubSignIn } =
+    useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   // console.log("from login", location);
@@ -18,6 +22,14 @@ const Login = () => {
     const password = form.get("password");
 
     console.log(email, password);
+
+    login(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .then((error) => {
+        console.log(error);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -27,6 +39,19 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => console.log(error.message));
+  };
+  const handleFacebookSignIn = () => {
+    facebookSignIn()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  const handleGithubSignIn = () => {
+    githubSignIn()
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -81,12 +106,24 @@ const Login = () => {
                 New here? <Link to={"/register"}>Register Now!</Link>
               </p>
             </div>
-            <div>
+            <div className="flex gap-4 justify-center">
               <button
                 onClick={handleGoogleSignIn}
-                className="btn btn-primary text-white"
+                className="btn btn-neutral text-white rounded-full"
               >
-                Sign in with Google
+                <FaGoogle className="text-lg" />
+              </button>
+              <button
+                onClick={handleFacebookSignIn}
+                className="btn btn-neutral text-white rounded-full"
+              >
+                <FaFacebook className="text-lg" />
+              </button>
+              <button
+                onClick={handleGithubSignIn}
+                className="btn btn-neutral text-white rounded-full"
+              >
+                <FaGithub className="text-lg" />
               </button>
             </div>
           </form>

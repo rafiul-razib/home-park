@@ -60,6 +60,15 @@ const Navbar = () => {
         {user ? (
           <>
             <h2>{user.email}</h2>
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+              </div>
+            </div>
             <button onClick={handleLogOut} className="btn btn-accent">
               Log Out
             </button>
