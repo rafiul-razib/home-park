@@ -1,7 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 const EstateDetails = () => {
   const estates = useLoaderData();
-  console.log(estates);
+  // console.log(estates);
   const { id } = useParams();
   const selectedEstate = estates.find((estate) => estate.id == id);
 
@@ -17,7 +17,7 @@ const EstateDetails = () => {
     facilities,
     details_description,
   } = selectedEstate;
-  console.log(selectedEstate);
+  // console.log(selectedEstate);
 
   return (
     <div className="card rounded-none my-14">
