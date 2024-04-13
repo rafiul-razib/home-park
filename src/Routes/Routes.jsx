@@ -6,6 +6,8 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../Pages/Profile";
+import UpdateProfile from "../Pages/UpdateProfile";
+import Error from "../Pages/Error";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +40,11 @@ export const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
+      {
+        path: "/updateProfile",
+        element: <UpdateProfile />,
+      },
     ],
+    errorElement: <Error />,
   },
 ]);

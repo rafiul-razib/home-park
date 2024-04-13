@@ -29,7 +29,7 @@ const EstateCard = ({ estate }) => {
         <h1>Location : {location}</h1>
         <div className="card-actions justify-center">
           <Link to={`/estate/${id}`}>
-            <button className="btn btn-primary">View Details</button>
+            <button className="btn btn-primary">View Property</button>
           </Link>
         </div>
       </div>
