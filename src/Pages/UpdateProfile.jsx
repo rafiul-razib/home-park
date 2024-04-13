@@ -23,7 +23,7 @@ const UpdateProfile = () => {
       });
   };
   return (
-    <div>
+    <div className="w-96 mx-auto shadow-2xl my-9">
       <form onSubmit={handleUpdate} className="card-body">
         <div className="form-control">
           <label className="label">
@@ -47,6 +47,19 @@ const UpdateProfile = () => {
             placeholder="photo url"
             name="photo"
             defaultValue={user && user.photoURL}
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input
+            type="email"
+            placeholder="email"
+            name="email"
+            value={user && user.email}
             className="input input-bordered"
             required
           />
