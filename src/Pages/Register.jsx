@@ -1,6 +1,15 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../firebase/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { LuEye } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu";
 
 const Register = () => {
+  const { register } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
+  // console.log(showPass);
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -10,6 +19,20 @@ const Register = () => {
     const password = form.get("password");
 
     console.log(name, photoUrl, email, password);
+
+    register(email, password)
+      .then((result) => {
+        console.log(result.user);
+
+        // Update user
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photoUrl,
+        }).then(() => console.log("profile updated"));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -60,17 +83,24 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 placeholder="password"
                 name="password"
                 className="input input-bordered"
                 required
               />
+              <span
+                className="absolute top-[62%] right-6"
+                onClick={() => setShowPass(!showPass)}
+              >
+                {" "}
+                {showPass ? <LuEyeOff /> : <LuEye />}
+              </span>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-accent">Register</button>

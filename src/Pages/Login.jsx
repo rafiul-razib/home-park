@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/AuthProvider";
+import { LuEye } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu";
 
 const Login = () => {
   const { googleSignIn } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
   const location = useLocation();
-  console.log("from login", location);
+  // console.log("from login", location);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -51,22 +54,24 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 placeholder="password"
                 name="password"
                 className="input input-bordered"
                 required
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
+              <span
+                className="absolute top-[62%] right-6"
+                onClick={() => setShowPass(!showPass)}
+              >
+                {" "}
+                {showPass ? <LuEyeOff /> : <LuEye />}
+              </span>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-accent">Login</button>
