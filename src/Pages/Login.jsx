@@ -1,16 +1,20 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/AuthProvider";
+import { toast } from "react-toastify";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { googleSignIn, login, facebookSignIn, githubSignIn } =
     useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const location = useLocation();
   // console.log("from login", location);
   const navigate = useNavigate();
@@ -21,14 +25,17 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
 
-    console.log(email, password);
+    // console.log(email, password);
+    setErrorMessage("");
 
     login(email, password)
       .then((result) => {
         console.log(result.user);
+        toast.success("User logged in successfully");
       })
-      .then((error) => {
+      .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
@@ -38,24 +45,36 @@ const Login = () => {
         console.log(result.user);
         navigate(location?.state ? location.state : "/");
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        console.log(error);
+        setErrorMessage(error);
+      });
   };
   const handleFacebookSignIn = () => {
     facebookSignIn()
       .then((result) => {
         console.log(result.user);
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        console.log(error);
+        setErrorMessage(error);
+      });
   };
 
   const handleGithubSignIn = () => {
     githubSignIn()
       .then((result) => console.log(result.user))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setErrorMessage(error);
+      });
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>
@@ -101,9 +120,12 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-accent">Login</button>
             </div>
-            <div>
+            <div className="text-center">
               <p>
-                New here? <Link to={"/register"}>Register Now!</Link>
+                New here?{" "}
+                <Link to={"/register"} className="text-blue-500 font-bold">
+                  Register Now!
+                </Link>
               </p>
             </div>
             <div className="flex gap-4 justify-center">
@@ -127,6 +149,9 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <div className="text-center pb-5">
+            {errorMessage && <p className="text-red-600">{errorMessage}</p>}
+          </div>
         </div>
       </div>
     </div>
