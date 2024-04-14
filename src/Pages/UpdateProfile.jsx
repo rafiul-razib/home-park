@@ -1,13 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
+import { toast } from "react-toastify";
 
 const UpdateProfile = () => {
   const { user } = useContext(AuthContext);
 
   const handleUpdate = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const form = new FormData(e.currentTarget);
     const name = form.get("name");
     const photoUrl = form.get("photo");
@@ -17,10 +18,10 @@ const UpdateProfile = () => {
       photoURL: photoUrl,
     })
       .then(() => {
-        alert("Profile Updated");
+        toast.success("Profile Updated");
       })
       .catch(() => {
-        alert("An error ocurred");
+        toast.warning("An error ocurred, Profile not updated");
       });
   };
   return (
@@ -64,6 +65,7 @@ const UpdateProfile = () => {
             placeholder="email"
             name="email"
             value={user && user.email}
+            readOnly
             className="input input-bordered"
             required
           />

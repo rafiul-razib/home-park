@@ -23,14 +23,14 @@ import resort4 from "../assets/images/resort (4).jpg";
 const Explore = () => {
   return (
     <div className="mt-5">
-      <div data-aos="fade-up">
+      <div data-aos="fade-up" className="hidden lg:block">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={50}
           slidesPerView={5}
           height={200}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          //   onSlideChange={() => console.log("slide change")}
+          //   onSwiper={(swiper) => console.log(swiper)}
           navigation
           pagination={true}
           autoplay={true}

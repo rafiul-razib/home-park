@@ -15,6 +15,7 @@ const Footer = () => {
           Providing reliable service in Luxurious Real-Estate since 1992
         </p>
       </aside>
+
       <nav className="z-10">
         <h6 className="footer-title">Services</h6>
         <a className="link link-hover">Branding</a>
@@ -35,6 +36,7 @@ const Footer = () => {
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
       </nav>
+
       <img src={wave} className="absolute bottom-0 left-0 w-full" alt="wave" />
     </footer>
   );

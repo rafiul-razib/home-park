@@ -50,12 +50,12 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-10 text-black p-2 shadow bg-base-100 rounded-box w-52"
           >
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl w-1/2 animate__slideInLeft">
+        <a className="btn btn-ghost text-xl w-full lg:w-1/2 animate__slideInLeft">
           <img src={logo} alt="" />
         </a>
       </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
       <div className="navbar-end flex gap-2">
         {user ? (
           <>
-            <h2 className=" animate__slideInRight">{user.email}</h2>
+            <h2 className="hidden lg:block">{user.email}</h2>
             <div
               tabIndex={0}
               role="button"

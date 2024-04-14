@@ -1,8 +1,13 @@
-# React + Vite
+Live-site Link:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a front-end focused website created with React.js. Authentication is the main focus. Here user can Sign-up using Email and Password. Login is also possible with Google account, Facebook and Github account.
 
-Currently, two official plugins are available:
+Used technologies:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. React router dom
+2. Firebase Authentication
+3. Tailwind CSS
+4. Swiper Js
+5. AOS
+6. Animate.css
+7. React Toastify.
