@@ -46,6 +46,7 @@ const EstateDetails = () => {
         </div>
 
         <div>
+          <h2 className="text-lg font-normal">For {status}</h2>
           <h2 className="text-xl font-bold">Price : {price}</h2>
         </div>
       </div>

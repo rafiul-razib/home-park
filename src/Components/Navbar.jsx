@@ -55,7 +55,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl w-full lg:w-1/2 animate__slideInLeft">
+        <a className="btn btn-ghost text-xl w-full md:w-1/2 animate__slideInLeft">
           <img src={logo} alt="" />
         </a>
       </div>

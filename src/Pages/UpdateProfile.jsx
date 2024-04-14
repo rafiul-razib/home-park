@@ -18,7 +18,7 @@ const UpdateProfile = () => {
       photoURL: photoUrl,
     })
       .then(() => {
-        toast.success("Profile Updated");
+        toast.success("Profile Updated, reload to update photo.");
       })
       .catch(() => {
         toast.warning("An error ocurred, Profile not updated");
