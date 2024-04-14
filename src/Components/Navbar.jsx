@@ -81,7 +81,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleLogOut}
-              className="btn glass bg-indigo-400 text-white animate__slideInRight"
+              className="btn glass bg-indigo-500 text-white animate__slideInRight"
             >
               Log Out
             </button>
@@ -89,7 +89,7 @@ const Navbar = () => {
         ) : (
           <Link
             to={"/login"}
-            className="btn glass bg-indigo-400 animate__slideInRight text-white"
+            className="btn glass bg-indigo-500 animate__slideInRight text-white"
           >
             <FaSignInAlt />
             Login

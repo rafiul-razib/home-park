@@ -115,7 +115,7 @@ const Login = () => {
               </span>
             </div>
             <div className="form-control mt-6">
-              <button className="btn glass bg-indigo-400 text-white">
+              <button className="btn glass bg-indigo-500 text-white">
                 <FaSignInAlt />
                 Login
               </button>

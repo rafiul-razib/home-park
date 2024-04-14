@@ -70,7 +70,9 @@ const UpdateProfile = () => {
         </div>
 
         <div className="form-control mt-6">
-          <button className="btn glass bg-indigo-400">Update Profile</button>
+          <button className="btn glass bg-indigo-500 text-white">
+            Update Profile
+          </button>
         </div>
       </form>
     </div>
