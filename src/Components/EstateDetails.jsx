@@ -23,7 +23,7 @@ const EstateDetails = () => {
   // console.log(selectedEstate);
 
   return (
-    <div className="card rounded-none my-14">
+    <div className="card rounded-none mb-14">
       <figure>
         <img src={img_url} alt="Shoes" />
       </figure>

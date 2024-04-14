@@ -2,14 +2,14 @@ import { useLoaderData } from "react-router-dom";
 import EstateCard from "./EstateCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
-
+// import { useEffect } from "react";
+AOS.init();
 const Estates = () => {
   const data = useLoaderData();
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init();
+  // }, []);
   return (
     <div className="text-center my-12 max-w-6xl mx-auto">
       <div data-aos="fade-down">

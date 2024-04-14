@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import Profile from "../Pages/Profile";
 import UpdateProfile from "../Pages/UpdateProfile";
 import Error from "../Pages/Error";
+import Explore from "../Pages/Explore";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/explore",
+        element: (
+          <PrivateRoute>
+            <Explore />
           </PrivateRoute>
         ),
       },
