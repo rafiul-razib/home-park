@@ -2,6 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo@2x.png";
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
+import { IoPeopleOutline } from "react-icons/io5";
+import { FaSignInAlt } from "react-icons/fa";
+import "animate.css";
 
 const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext);
@@ -23,7 +26,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-black text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,7 +52,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl w-1/2">
+        <a className="btn btn-ghost text-xl w-1/2 animate__slideInLeft">
           <img src={logo} alt="" />
         </a>
       </div>
@@ -59,13 +62,13 @@ const Navbar = () => {
       <div className="navbar-end flex gap-2">
         {user ? (
           <>
-            <h2>{user.email}</h2>
+            <h2 className=" animate__slideInRight">{user.email}</h2>
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
+              <div className="w-10 rounded-full  animate__slideInRight">
                 <img
                   title={user.displayName}
                   alt="Tailwind CSS Navbar component"
@@ -73,12 +76,19 @@ const Navbar = () => {
                 />
               </div>
             </div>
-            <button onClick={handleLogOut} className="btn btn-accent">
+            <button
+              onClick={handleLogOut}
+              className="btn glass bg-indigo-400 animate__slideInRight"
+            >
               Log Out
             </button>
           </>
         ) : (
-          <Link to={"/login"} className="btn btn-accent">
+          <Link
+            to={"/login"}
+            className="btn glass bg-indigo-400 animate__slideInRight text-white"
+          >
+            <FaSignInAlt />
             Login
           </Link>
         )}

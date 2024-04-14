@@ -23,11 +23,12 @@ const Banner = () => {
       spaceBetween={50}
       slidesPerView={1}
       height={200}
-      //   onSlideChange={() => console.log("slide change")}
-      //   onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
       navigation
       pagination={true}
       autoplay={true}
+      className="max-h-[550px] w-full"
     >
       <SwiperSlide>
         <img src={penthouse1} alt="" />

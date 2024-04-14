@@ -10,7 +10,7 @@ const Root = () => {
         <title>Home</title>
       </Helmet>
       <Navbar />
-      <div className="max-w-6xl mx-auto">
+      <div>
         <Outlet />
       </div>
       <Footer />

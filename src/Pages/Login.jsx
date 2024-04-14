@@ -8,6 +8,7 @@ import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { FaSignInAlt } from "react-icons/fa";
 
 const Login = () => {
   const { googleSignIn, login, facebookSignIn, githubSignIn } =
@@ -32,6 +33,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("User logged in successfully");
+        navigate(location.state);
       })
       .catch((error) => {
         console.log(error);
@@ -118,7 +120,10 @@ const Login = () => {
               </span>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-accent">Login</button>
+              <button className="btn glass bg-indigo-400 text-white">
+                <FaSignInAlt />
+                Login
+              </button>
             </div>
             <div className="text-center">
               <p>
