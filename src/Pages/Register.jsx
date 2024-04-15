@@ -27,9 +27,9 @@ const Register = () => {
     if (password.length < 6) {
       setRegisterError("Password should be at least 6 character long");
       return;
-    } else if (!/^(?=.*[A-Z])(?=.*\d).{6}$/.test(password)) {
+    } else if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/.test(password)) {
       toast.warning(
-        "Password should contain at least 1 uppercase and a Number!"
+        "Password should contain at least 1 uppercase, 1 lowercase and a Number!"
       );
       return;
     }
@@ -59,7 +59,7 @@ const Register = () => {
       }}
     >
       <Helmet>
-        <title>Register</title>
+        <title>HomPark | Register</title>
       </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card shrink-0 w-full rounded-none max-w-sm shadow-2xl bg-base-100">

@@ -20,9 +20,13 @@ import resort1 from "../assets/images/resort (1).jpg";
 import resort2 from "../assets/images/resort (2).jpg";
 import resort3 from "../assets/images/resort (3).jpg";
 import resort4 from "../assets/images/resort (4).jpg";
+import { Helmet } from "react-helmet-async";
 const Explore = () => {
   return (
     <div className="mt-5">
+      <Helmet>
+        <title>HomPark | Explore</title>
+      </Helmet>
       <div data-aos="fade-up" className="hidden lg:block">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}

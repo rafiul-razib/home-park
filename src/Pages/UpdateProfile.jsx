@@ -27,7 +27,7 @@ const UpdateProfile = () => {
   return (
     <div className="w-96 mx-auto shadow-2xl my-9">
       <Helmet>
-        <title>Update Profile</title>
+        <title>HomPark | Update Profile</title>
       </Helmet>
       <form onSubmit={handleUpdate} className="card-body">
         <div className="form-control">

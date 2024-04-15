@@ -33,7 +33,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("User logged in successfully");
-        navigate(location.state);
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);
@@ -58,8 +58,9 @@ const Login = () => {
   const handleFacebookSignIn = () => {
     facebookSignIn()
       .then((result) => {
-        // console.log(result.user);
+        console.log(result.user);
         toast.success("User logged in successfully");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         // console.log(error);
@@ -73,6 +74,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("User logged in successfully");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);
@@ -87,7 +89,7 @@ const Login = () => {
       style={{ backgroundImage: "url('https://i.ibb.co/zSTvgcK/beach-4.jpg')" }}
     >
       <Helmet>
-        <title>Login</title>
+        <title>HomPark | Login</title>
       </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card shrink-0 w-full rounded-none max-w-sm shadow-2xl bg-base-100">
