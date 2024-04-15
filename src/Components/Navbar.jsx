@@ -55,7 +55,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl w-full md:w-1/2 animate__slideInLeft">
+        <a className="btn btn-ghost text-xl w-2/3 md:w-1/2 animate__slideInLeft">
           <img src={logo} alt="" />
         </a>
       </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
         ) : (
           <Link
             to={"/login"}
-            className="btn glass bg-indigo-500 animate__slideInRight text-white"
+            className="btn btn-sm md:btn-md glass bg-indigo-500 animate__slideInRight text-white"
           >
             <FaSignInAlt />
             Login

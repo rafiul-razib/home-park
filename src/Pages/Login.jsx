@@ -46,30 +46,38 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
+        toast.success("User logged in successfully");
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);
         setErrorMessage(error);
+        toast.warning(error.message);
       });
   };
   const handleFacebookSignIn = () => {
     facebookSignIn()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
+        toast.success("User logged in successfully");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setErrorMessage(error);
+        toast.warning(error.message);
       });
   };
 
   const handleGithubSignIn = () => {
     githubSignIn()
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        console.log(result.user);
+        toast.success("User logged in successfully");
+      })
       .catch((error) => {
         console.log(error);
         setErrorMessage(error);
+        toast.warning(error.message);
       });
   };
 
@@ -132,19 +140,19 @@ const Login = () => {
             <div className="flex gap-4 justify-center">
               <button
                 onClick={handleGoogleSignIn}
-                className="btn btn-neutral text-white rounded-full"
+                className="btn glass bg-[#453F78] w-12 h-12 text-white rounded-full"
               >
                 <FaGoogle className="text-lg" />
               </button>
               <button
                 onClick={handleFacebookSignIn}
-                className="btn btn-neutral text-white rounded-full"
+                className="btn glass bg-[#453F78] w-12 h-12 text-white rounded-full"
               >
                 <FaFacebook className="text-lg" />
               </button>
               <button
                 onClick={handleGithubSignIn}
-                className="btn btn-neutral text-white rounded-full"
+                className="btn glass bg-[#453F78] w-12 h-12 text-white rounded-full"
               >
                 <FaGithub className="text-lg" />
               </button>
