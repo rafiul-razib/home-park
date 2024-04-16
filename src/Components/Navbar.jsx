@@ -81,7 +81,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleLogOut}
-              className="btn glass bg-indigo-500 text-white animate__slideInRight"
+              className="btn btn-sm md:btn-md glass bg-indigo-500 text-white animate__slideInRight"
             >
               Log Out
             </button>

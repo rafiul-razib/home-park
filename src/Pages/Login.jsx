@@ -146,12 +146,12 @@ const Login = () => {
               >
                 <FaGoogle className="text-lg" />
               </button>
-              <button
+              {/* <button
                 onClick={handleFacebookSignIn}
                 className="btn glass bg-[#453F78] w-12 h-12 text-white rounded-full"
               >
                 <FaFacebook className="text-lg" />
-              </button>
+              </button> */}
               <button
                 onClick={handleGithubSignIn}
                 className="btn glass bg-[#453F78] w-12 h-12 text-white rounded-full"
